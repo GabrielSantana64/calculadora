@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Calculadora</title>
+    <meta charset="utf-8">
+</head>
+<body bgcolor="white">
+    <h1>Calculadora 1.0</h1>
+    <input type="text" id="txtValor1">
+    <select id="operadores" onchange="ControleDeSelecao()">
+        <optgroup label="Basico">
+            <option value="+">+(somar)</option>
+            <option value="-">(subtrair)</option>
+            <option value="*">*(multiplicar)</option>
+            <option value="/">/(dividir)</option>
+        </optgroup>
+        <optgroup label="Outros">
+            <option value="raiz">Raiz</option>
+            <option value="potencial">Potencial</option>
+            <option value="fatorial">Fatorial</option>
+            <option value="fibonacci">Fibonacci</option>
+            <option value="porcento">Porcentagem</option>
+            <option value="media">Media</option>
+            <option value="calc">Develop Calc</option>
+        </optgroup>
+    </select>
+    <input type="text" id="txtValor2" size="S"><br>
+    <input type="button" onclick="Calcular()" value="Calcular">
+    <input type="button" onclick="Limpar()" value="Limpar">
+    <p id="saida">Resultado:</p>
+    <hr>
+
+    <script>
+        function ControleDeSelecao() {
+          
+        }
+
+        function Calcular() {
+            var valor1 = parseFloat(document.getElementById('txtValor1').value);
+            var valor2 = parseFloat(document.getElementById('txtValor2').value);
+            var operador = document.getElementById('operadores').value;
+            var resultado = 0;
+
+            switch (operador) {
+                case '+':
+                    resultado = valor1 + valor2;
+                    break;
+                case '-':
+                    resultado = valor1 - valor2;
+                    break;
+                case '*':
+                    resultado = valor1 * valor2;
+                    break;
+                case '/':
+                    resultado = valor1 / valor2;
+                    break;
+               
+            }
+
+            document.getElementById('saida').innerHTML = 'Resultado: ' + resultado;
+        }
+
+        function Limpar() {
+            document.getElementById('txtValor1').value = '';
+            document.getElementById('txtValor2').value = '';
+            document.getElementById('saida').innerHTML = 'Resultado:';
+        }
+    </script>
+</body>
+</html>
